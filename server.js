@@ -1,8 +1,12 @@
 const express = require("express");
 
+const bodyParser = require("body-parser");
+
+const api = require("./backend/routes");
+
 const app = express();
 
-const port = 3080;
+app.use(bodyParser.json());
 
 app.get("/", (req, res) =>{
     res.json({
@@ -10,29 +14,11 @@ app.get("/", (req, res) =>{
     });
 });
 
-app.get("/portifolio", (req, res) => {
-    //acess db
-    const data = [ { 
-        id: 1, 
-        name: "lasanha",
-        createdAt: "2022-01-19"
-    }, 
-{
-    id: 2, 
-    name: "pizza", 
-    createdAt: "2022-01-19"
-},
-{
-    id: 3,
-    name: "guacamole",
-    createdAt: "2022-01-19"
-},
-];
+app.use("/api", api);
 
-res.json({
-    sucess: true, 
-    data: data
-});
-});
 
+const port = 3080;
 app.listen(port);
+
+
+// mongo url conection: mongodb+srv://portifolio:<password>@cluster0.tylei.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
