@@ -2,7 +2,10 @@ const express = require("express");
 
 const bodyParser = require("body-parser");
 
+require("dotenv").config();
+
 const api = require("./backend/routes");
+const { config } = require("dotenv");
 
 const app = express();
 
@@ -16,9 +19,5 @@ app.get("/", (req, res) =>{
 
 app.use("/api", api);
 
-
-const port = 3080;
-app.listen(port);
-
-
-// mongo url conection: mongodb+srv://portifolio:<password>@cluster0.tylei.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+const PORT = process.env.PORT;
+app.listen(PORT);
