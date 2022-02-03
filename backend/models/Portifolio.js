@@ -12,7 +12,7 @@ const portifolioSchema = new Schema ( {
         required: true
     },
     createdAt: {
-        type: data,
+        type: Date,
         default: Date.now()
     }
 } );
