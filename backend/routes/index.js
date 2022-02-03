@@ -1,6 +1,9 @@
 const { route } = require("express/lib/application");
 const res = require("express/lib/response");
 
+
+require("../db/mongoConnection");
+
 const router = require("express").Router();
 
 const portifolio = require("./portifolio");
