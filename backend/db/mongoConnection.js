@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGO_URL_CONCTION, () => {
-    console.log("pai ta ON no mongodb");
+mongoose.connect(process.env.MONGO_URL_CONNECT, () => {
+    console.log("pai não ta ON no mongodb");
 })
