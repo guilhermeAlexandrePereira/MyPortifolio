@@ -1,3 +1,4 @@
+const req = require("express/lib/request");
 const res = require("express/lib/response");
 const router = require("express").Router();
 const Portifolio = require("../models/Portifolio");
@@ -76,5 +77,29 @@ router.get("/:slug", async (req, res) => {
         });
     }
 });
+
+// update
+// atualizar um slug
+router.patch("/:slug", async (req, res) => {
+    try{
+        const updatedPortifolio = await Portifolio.updateOne({
+            slug: req.params.slug
+        },
+        {
+            title: req.body.title,
+            description: req.body.description
+        })
+
+        res.json({
+            success: true,
+        })
+    }catch(err){
+        res.json({
+            success: false,
+            message: err
+        })
+    }
+})
+// delete
 
 module.exports = router
