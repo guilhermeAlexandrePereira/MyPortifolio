@@ -63,7 +63,9 @@ router.get("/", async (req, res) => {
 //ler apenas  portifolio
 router.get("/:slug", async (req, res) => {
     try {
-        const portifolio = await Portifolio.findOne({ slug: req.params.slug });
+        const portifolio = await Portifolio.findOne({ 
+            slug: req.params.slug 
+        });
         res.json({
             success: true,
             data: portifolio
@@ -123,3 +125,21 @@ router.delete("/:slug", async (req, res) => {
 })
 
 module.exports = router
+
+//router.o que for usar("/", async (req, res) => {
+//    try{
+//        const o que for usarPortifolio = await Portifolio.o que for usar();
+//
+//        res.json({
+//            success: true,
+//            data: portifolio
+//        });
+//    }catch(err){
+//        res.json({
+//            success:false,
+//            message: err,
+//        })
+//
+//    }
+//
+//});
