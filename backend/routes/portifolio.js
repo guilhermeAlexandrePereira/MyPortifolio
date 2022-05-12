@@ -103,7 +103,7 @@ router.patch("/:slug", async (req, res) => {
         })
     }
 })
-// delete
+
 // deletar um slug
 router.delete("/:slug", async (req, res) => {
     try{
